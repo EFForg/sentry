@@ -6,11 +6,11 @@ This provides an easy way to bootstrap the [Sentry](https://getsentry.com/) dock
 
     cp docker-compose.yml.example docker-compose.yml
     docker-compose up -d postgres redis
-    docker run --rm sentry:8.5.1 generate-secret-key
+    docker run --rm sentry:8.5 generate-secret-key
 
 With the key generated above, run:
 
-    docker run -it --rm -e SENTRY_SECRET_KEY='<secret-key>' --link sentry_postgres_1:postgres --link sentry_redis_1:redis sentry:8.5.1 upgrade
+    docker run -it --rm -e SENTRY_SECRET_KEY='<secret-key>' --link sentry_postgres_1:postgres --link sentry_redis_1:redis sentry:8.5 upgrade
 
 Add the key to `SENTRY_SECRET_KEY` in `docker-compose.yml` in three places, and change any mail settings in this file.  Then:
 
