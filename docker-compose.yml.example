@@ -29,7 +29,7 @@ celerybeat:
   links:
     - redis
     - postgres
-  command: sentry celery beat
+  command: sentry run cron
   environment:
     SENTRY_SECRET_KEY: ''
 
@@ -38,6 +38,6 @@ celeryworker:
   links:
     - redis
     - postgres
-  command: sentry celery worker
+  command: sentry run worker
   environment:
     SENTRY_SECRET_KEY: ''
